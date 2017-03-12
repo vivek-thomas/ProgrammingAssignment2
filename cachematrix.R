@@ -39,3 +39,43 @@ cacheSolve <- function(x, ...)
         x$setInverse(mat_inv)
         mat_inv
 }
+
+                
+## Test validation of Function to Inverse and Cache a matrix
+> Inv_Matrix_Val <- makeCacheMatrix(matrix(c(3,0,2,2,0,-2,0,1,1), 3, 3))
+> Inv_Matrix_Val$get()
+     [,1] [,2] [,3]
+[1,]    3    2    0
+[2,]    0    0    1
+[3,]    2   -2    1
+> Inv_Matrix_Val$getInverse()
+NULL
+> cacheSolve(Inv_Matrix_Val)
+     [,1] [,2] [,3]
+[1,]  0.2 -0.2  0.2
+[2,]  0.2  0.3 -0.3
+[3,]  0.0  1.0  0.0
+> Inv_Matrix_Val$getInverse()
+     [,1] [,2] [,3]
+[1,]  0.2 -0.2  0.2
+[2,]  0.2  0.3 -0.3
+[3,]  0.0  1.0  0.0
+> Inv_Matrix_Val$set(matrix(c(3,0,2,2,0,-2,0,1,1), 3, 3))
+> Inv_Matrix_Val$get()
+     [,1] [,2] [,3]
+[1,]    3    2    0
+[2,]    0    0    1
+[3,]    2   -2    1
+> Inv_Matrix_Val$getInverse()
+NULL
+> cacheSolve(Inv_Matrix_Val)
+     [,1] [,2] [,3]
+[1,]  0.2 -0.2  0.2
+[2,]  0.2  0.3 -0.3
+[3,]  0.0  1.0  0.0
+> Inv_Matrix_Val$getInverse()
+     [,1] [,2] [,3]
+[1,]  0.2 -0.2  0.2
+[2,]  0.2  0.3 -0.3
+[3,]  0.0  1.0  0.0
+> 
